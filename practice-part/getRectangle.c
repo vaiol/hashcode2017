@@ -17,13 +17,11 @@ t_rectangle		**getRectangle(size_t min_cells, size_t max_cells)
 	t_rectangle		**rect;
 	size_t			i;
 	size_t			j;
-    size_t			k;
 	size_t			length;
 	size_t			width;
 		
     i = 0;
     j = 0;
-    k = 0;
     length = 1;
     while (length <= max_cells)
     {
@@ -31,9 +29,8 @@ t_rectangle		**getRectangle(size_t min_cells, size_t max_cells)
             width = min_cells;
         else
             width = 1;
-        while (width <= max_cells && (length * width) <= max_cells && (length * width) >= min_cells)
+        while ((length * width) <= max_cells && (length * width) >= min_cells)
         {
-            k = length * width;
             width++;
             j++;
         }
@@ -50,7 +47,7 @@ t_rectangle		**getRectangle(size_t min_cells, size_t max_cells)
 			width = min_cells;
 		else
 			width = 1;
-		while (width <= max_cells && (length * width) <= max_cells && (length * width) >= min_cells)
+		while ((length * width) <= max_cells && (length * width) >= min_cells)
 		{
 			rect[j] = (t_rectangle *)malloc(sizeof(t_rectangle));
 			rect[j]->length = length;

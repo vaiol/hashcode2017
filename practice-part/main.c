@@ -11,8 +11,8 @@ int	main(int argc, char **argv)
 		printf("error\n");
 		return (1);
 	}
-	min = atoi(argv[1]);
-	max = atoi(argv[2]);
+	min = (size_t)atoi(argv[1]);
+	max = (size_t)atoi(argv[2]);
 	array = getRectangle(min, max);
 	for (size_t i = 0; array[i]; i++)
 		printf("%zu %zu\n", array[i]->length, array[i]->width);
