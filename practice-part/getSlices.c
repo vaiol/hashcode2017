@@ -1,6 +1,6 @@
 #include "pizza.h"
 
-t_slice     *createSlice(t_rectangle *rectangle, size_t i, size_t j)
+t_slice     *createSlice(t_rectangle *rectangle, const size_t i, const size_t j)
 {
     t_slice *result = (t_slice *)malloc(sizeof(t_slice));
     result->columns_start = j;
@@ -42,7 +42,7 @@ int         checkSlices(t_slice *list, t_slice *slice)
     return (1);
 }
 
-int         checkFields(char **map, t_slice *slice)
+int         checkFields(char **map, t_slice *slice, size_t piece)
 {
     int m_count = 0;
     int t_count = 0;
@@ -50,13 +50,13 @@ int         checkFields(char **map, t_slice *slice)
     {
         for (size_t j = slice->columns_start; j <= slice->columns_end; j++)
         {
-            if (map[i][j] == 't')
+            if (map[i][j] == 'T')
                 t_count++;
-            if (map[i][j] == 'm')
+            if (map[i][j] == 'M')
                 m_count++;
         }
     }
-    if (m_count < getMin() && t_count < getMin())
+    if (m_count < piece && t_count < piece)
         return (0);
     return (1);
 }
