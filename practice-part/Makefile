@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = gcc
-SRCS = main.c getRectangle.c 
+SRCS = main.c getRectangle.c readFile.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = -I pizza.h 
 NAME = pizza
