@@ -15,47 +15,31 @@
 t_rectangle		**getRectangle(size_t min_cells, size_t max_cells)
 {
 	t_rectangle		**rect;
-	size_t			i;
 	size_t			j;
-	size_t			length;
-	size_t			width;
-		
-    i = 0;
+
     j = 0;
-    length = 1;
-    while (length <= max_cells)
+    for (size_t length = 1; length <= max_cells; length++)
     {
-        if (length == 1)
-            width = min_cells;
-        else
-            width = 1;
-        while ((length * width) <= max_cells && (length * width) >= min_cells)
-        {
-            width++;
-            j++;
-        }
-        length++;
-        i++;
+		for (size_t width = 1; width <= max_cells; width++)
+		{
+			if ((length * width) <= max_cells && (length * width) >= min_cells)
+				j++;
+		}
     }
     rect = (t_rectangle **)malloc(sizeof(t_rectangle *) * (j + 1));
-	i = 0;
 	j = 0;
-	length = 1;
-	while (length <= max_cells)
+	for (size_t length = 1; length <= max_cells; length++)
 	{
-		if (length == 1)
-			width = min_cells;
-		else
-			width = 1;
-		while ((length * width) <= max_cells && (length * width) >= min_cells)
+		for (size_t width = 1; width <= max_cells; width++)
 		{
-			rect[j] = (t_rectangle *)malloc(sizeof(t_rectangle));
-			rect[j]->length = length;
-			rect[j]->width = width++;
-			j++;
+			if ((length * width) <= max_cells && (length * width) >= min_cells)
+			{
+				rect[j] = (t_rectangle *)malloc(sizeof(t_rectangle));
+				rect[j]->length = length;
+				rect[j]->width = width;
+				j++;
+			}
 		}
-		length++;
-		i++;
 	}
 	rect[j] = NULL;
 	return (rect);
