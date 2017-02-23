@@ -1,5 +1,18 @@
 #include "pizza.h"
 
+static int  g_max;
+static int  g_min;
+
+int         getMax()
+{
+    return (g_max);
+}
+
+int         getMin()
+{
+    return (g_min);
+}
+
 int	main(int argc, char **argv)
 {
 	size_t		min;
